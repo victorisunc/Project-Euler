@@ -47,7 +47,7 @@ def sum(result):
 
 if (__name__ == "__main__"):
     try: 
-      t = timeit.Timer(setup='from __main__ import primes', stmt='primes(int(sys.argv[1]))') 
-      print t.timeit(1)
+        t = timeit.Timer(setup='from __main__ import primes', stmt='primes(int(sys.argv[1]))') 
+        print t.timeit(1)
     except:
-      print 'Usage: python file_name.py ARG'
+        print 'Usage: python file_name.py ARG'
