@@ -32,9 +32,9 @@ def primes(n):
     i = 2
     result = 0 
     while i < n:
-      if isprime(i):
-        result += i
-      i+=1
+        if isprime(i):
+            result += i
+        i+=1
     print result
     return result
 
