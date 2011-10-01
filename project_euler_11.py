@@ -121,7 +121,7 @@ def greatest_product(n):
 
 if (__name__ == "__main__"):
 	#try: 
-  t = timeit.Timer(setup='from __main__ import greatest_product', stmt='greatest_product(sys.argv[1])') 
-  print t.timeit(1)
+    t = timeit.Timer(setup='from __main__ import greatest_product', stmt='greatest_product(sys.argv[1])') 
+    print t.timeit(1)
 	#except:
 	#    print 'Usage: python file_name.py'
