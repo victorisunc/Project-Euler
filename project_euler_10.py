@@ -28,26 +28,26 @@ def isprime(n):
     return 1
 
 def primes(n):
-  # find all primes below two million and sum them up
-  i = 2
-  result = 0 
-  while i < n:
-    if isprime(i):
-      result += i
-    i+=1
-  print result
-  return result
+    # find all primes below two million and sum them up
+    i = 2
+    result = 0 
+    while i < n:
+      if isprime(i):
+        result += i
+      i+=1
+    print result
+    return result
 
 # helper sum function that takes a list as input
 def sum(result):
-  summed = reduce(lambda x, y: x + y, result)
-  print summed 
-  return summed
+    summed = reduce(lambda x, y: x + y, result)
+    print summed 
+    return summed
 
 
 if (__name__ == "__main__"):
-  try: 
-    t = timeit.Timer(setup='from __main__ import primes', stmt='primes(int(sys.argv[1]))') 
-    print t.timeit(1)
-  except:
-    print 'Usage: python file_name.py ARG'
+    try: 
+      t = timeit.Timer(setup='from __main__ import primes', stmt='primes(int(sys.argv[1]))') 
+      print t.timeit(1)
+    except:
+      print 'Usage: python file_name.py ARG'
