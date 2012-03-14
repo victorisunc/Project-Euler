@@ -3,11 +3,11 @@
 import sys
 import timeit
 
-# PROJECT EULER 
+# PROJECT EULER
 
 # PROBLEM 8:
 
-# Find the greatest product of five consecutive digits in the 1000-digit number. 
+# Find the greatest product of five consecutive digits in the 1000-digit number.
 
 
 def consecutive(n):
@@ -44,7 +44,7 @@ def consecutive(n):
   i = n
   index = 0
   while i < len(digits):
-    popped = n_digits.pop(0) 
+    popped = n_digits.pop(0)
     n_digits.append(int(digits[i]))
     #if 0 in n_digits:
     #  i += 1
@@ -57,8 +57,8 @@ def consecutive(n):
   print "Greatest Product: %s" % greatest_product
   return
 if (__name__ == "__main__"):
-  try: 
-    t = timeit.Timer(setup='from __main__ import consecutive', stmt='consecutive(sys.argv[1])') 
+  try:
+    t = timeit.Timer(setup='from __main__ import consecutive', stmt='consecutive(sys.argv[1])')
     print t.timeit(1)
   except:
     print 'Usage: python file_name.py <# of consecutive digits>'

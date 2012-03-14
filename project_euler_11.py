@@ -3,7 +3,7 @@
 import sys
 import timeit
 
-# PROJECT EULER 
+# PROJECT EULER
 # PROBLEM 11:
 
 # n the 2020 grid below, four numbers along a diagonal line have been marked in red.
@@ -11,9 +11,9 @@ import timeit
 # What is the greatest product of four adjacent numbers in any direction (up, down, left, right, or diagonally) in the 20 by 20 grid?
 
 def greatest_product(n):
-  # n is how many elements in the adjacent set of numbers
-	n = int(n)
-	grid = """
+    # n is how many elements in the adjacent set of numbers
+    n = int(n)
+    grid = """
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08|
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00|
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65|
@@ -34,94 +34,94 @@ def greatest_product(n):
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16|
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54|
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"""
-	print grid
-	grid = grid.replace("\n", "").replace("\t", "")
-	temp = grid.split("|")
-	lines = []
-	for l in temp:
-		lines.append(l.split(" "))
-	
-	# let's define some grid properties:
-	n_cols = len(lines[0])
-	n_lines = len(lines)
-	print "Cols: %s" % n_cols
-	print "Lines: %s" % n_lines 
+    print grid
+    grid = grid.replace("\n", "").replace("\t", "")
+    temp = grid.split("|")
+    lines = []
+    for l in temp:
+        lines.append(l.split(" "))
 
-	horizontal_sets = []
-	temp = []
-	
-  # This loop constructs a list of n-adjacent numbers HORIZONTALLY
-	for l in range(n_lines):
-		x = 0
-		while x < (n_cols-n+1):
-			for i in range(n):
-				temp.append(int(lines[l][i+x]))
-			horizontal_sets.append(temp)
-			temp = []
-			x += 1
-		
-	# This loop constructs a list of n-adjacent numbers VERTICALLY
-	vertical_sets = []
-	for l in range(n_lines):
-		x = 0
-		while x < (n_lines-n+1):
-			for i in range(n):
-				temp.append(int(lines[i+x][l]))
-			vertical_sets.append(temp)
-			temp = []
-			x += 1		
-	
-	# This loop construcs a list of n-adjacent numbers DIAGONALLY \
-	diagonal_sets_a = []	
-	for l in range(n_lines-n+1):
-		x = 0
-		while x < (n_cols-n+1):
-			for i in range(n):
-				temp.append(int(lines[i+l][i+x]))
-			diagonal_sets_a.append(temp)
-			temp = []
-			x += 1
+    # let's define some grid properties:
+    n_cols = len(lines[0])
+    n_lines = len(lines)
+    print "Cols: %s" % n_cols
+    print "Lines: %s" % n_lines
 
-	# This loop construcs a list of n-adjacent numbers DIAGONALLY /
-	diagonal_sets_b = []	
-	for l in range(n_lines-n+1):
-		x = n_cols-1
-		while x >= (n-1):
-			for i in range(n):
-				temp.append(int(lines[i+l][x-i]))
-			diagonal_sets_b.append(temp)
-			temp = []
-			x -= 1
+    horizontal_sets = []
+    temp = []
 
-	print "Number of horizontal sets: %s" % len(horizontal_sets)
-	print "Number of vertical sets: %s" % len(vertical_sets)
-	print "Number of diagonal sets: %s" % (len(diagonal_sets_a) + len(diagonal_sets_b))
+    # This loop constructs a list of n-adjacent numbers HORIZONTALLY
+    for l in range(n_lines):
+        x = 0
+        while x < (n_cols-n+1):
+            for i in range(n):
+                temp.append(int(lines[l][i+x]))
+            horizontal_sets.append(temp)
+            temp = []
+            x += 1
 
-	# Get the products of numbers of each set
-	all_sets = []
-	all_sets.extend(horizontal_sets)
-	all_sets.extend(vertical_sets)
-	all_sets.extend(diagonal_sets_a)
-	all_sets.extend(diagonal_sets_b)
-	print "Total sets: %s" % len(all_sets)
-	
-	greatest_product = 0
-	greatest_set = []
-	for s in all_sets:
-		if 0 in s:
-			continue
-		product = reduce(lambda x, y: x * y, s)
-		if product > greatest_product:
-			greatest_set = s
-			greatest_product = product
+    # This loop constructs a list of n-adjacent numbers VERTICALLY
+    vertical_sets = []
+    for l in range(n_lines):
+        x = 0
+        while x < (n_lines-n+1):
+            for i in range(n):
+                temp.append(int(lines[i+x][l]))
+            vertical_sets.append(temp)
+            temp = []
+            x += 1
 
-	print "Greatest Product: %s" % greatest_product
-	print "THE SET: %s" % greatest_set 
-	return
+    # This loop construcs a list of n-adjacent numbers DIAGONALLY \
+    diagonal_sets_a = []
+    for l in range(n_lines-n+1):
+        x = 0
+        while x < (n_cols-n+1):
+            for i in range(n):
+                temp.append(int(lines[i+l][i+x]))
+            diagonal_sets_a.append(temp)
+            temp = []
+            x += 1
+
+    # This loop construcs a list of n-adjacent numbers DIAGONALLY /
+    diagonal_sets_b = []
+    for l in range(n_lines-n+1):
+        x = n_cols-1
+        while x >= (n-1):
+            for i in range(n):
+                temp.append(int(lines[i+l][x-i]))
+            diagonal_sets_b.append(temp)
+            temp = []
+            x -= 1
+
+    print "Number of horizontal sets: %s" % len(horizontal_sets)
+    print "Number of vertical sets: %s" % len(vertical_sets)
+    print "Number of diagonal sets: %s" % (len(diagonal_sets_a) + len(diagonal_sets_b))
+
+    # Get the products of numbers of each set
+    all_sets = []
+    all_sets.extend(horizontal_sets)
+    all_sets.extend(vertical_sets)
+    all_sets.extend(diagonal_sets_a)
+    all_sets.extend(diagonal_sets_b)
+    print "Total sets: %s" % len(all_sets)
+
+    greatest_product = 0
+    greatest_set = []
+    for s in all_sets:
+        if 0 in s:
+            continue
+        product = reduce(lambda x, y: x * y, s)
+        if product > greatest_product:
+            greatest_set = s
+            greatest_product = product
+
+    print "Greatest Product: %s" % greatest_product
+    print "THE SET: %s" % greatest_set
+    return
 
 if (__name__ == "__main__"):
-	#try: 
-    t = timeit.Timer(setup='from __main__ import greatest_product', stmt='greatest_product(sys.argv[1])') 
-    print t.timeit(1)
-	#except:
-	#    print 'Usage: python file_name.py'
+    try:
+        t = timeit.Timer(setup='from __main__ import greatest_product', stmt='greatest_product(sys.argv[1])')
+        print t.timeit(1)
+    except:
+       print 'Usage: python file_name.py <number of products>'

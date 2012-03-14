@@ -3,7 +3,7 @@
 import sys
 import timeit
 
-# PROJECT EULER 
+# PROJECT EULER
 
 # PROBLEM 6:
 
@@ -31,8 +31,8 @@ def difference_sums(n):
   return
 
 if (__name__ == "__main__"):
-  try: 
-    t = timeit.Timer(setup='from __main__ import difference_sums', stmt='difference_sums(sys.argv[1])') 
+  try:
+    t = timeit.Timer(setup='from __main__ import difference_sums', stmt='difference_sums(sys.argv[1])')
     print t.timeit(1)
   except:
     print 'Usage: python file_name.py ARG'

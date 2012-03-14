@@ -3,14 +3,14 @@
 import sys
 import timeit
 
-# PROJECT EULER 
+# PROJECT EULER
 # PROBLEM 13:
 
 # Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
 def first_digits(n):
-  # n is the first n-digits  
-	n = int(n)
-	numbers = """37107287533902102798797998220837590246510135740250
+    # n is the first n-digits
+    n = int(n)
+    numbers = """37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
 91942213363574161572522430563301811072406154908250
@@ -111,21 +111,21 @@ def first_digits(n):
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690"""
 
-	numbers = numbers.split("\n")
+    numbers = numbers.split("\n")
 
-	total = 0
-	# let's define some grid properties:
-	for i in numbers:
-		total += int(i) 
-	print "Total: %s" % total 
-	total = str(total)
-	print "First " + str(n) + " digits: "
-	print total[:10]
-	return
+    total = 0
+    # let's define some grid properties:
+    for i in numbers:
+        total += int(i)
+    print "Total: %s" % total
+    total = str(total)
+    print "First " + str(n) + " digits: "
+    print total[:10]
+    return
 
 if (__name__ == "__main__"):
-	try: 
-		t = timeit.Timer(setup='from __main__ import first_digits', stmt='first_digits(sys.argv[1])') 
-		print t.timeit(1)
-	except:
-		print 'Usage: python file_name.py <first n-digits>'
+    try:
+        t = timeit.Timer(setup='from __main__ import first_digits', stmt='first_digits(sys.argv[1])')
+        print t.timeit(1)
+    except:
+        print 'Usage: python file_name.py <first n-digits>'

@@ -3,7 +3,7 @@
 import sys
 import timeit
 
-# PROJECT EULER 
+# PROJECT EULER
 
 # PROBLEM 7:
 
@@ -25,7 +25,7 @@ def isprime(n):
     return 1
 
 def primes(n):
-  # find all primes until the n 
+  # find all primes until the n
   counter = 0
   prime = 0
   i = 2
@@ -36,12 +36,12 @@ def primes(n):
       i += 1
     else:
       i += 1
-  print prime 
-  return prime 
+  print prime
+  return prime
 
 if (__name__ == "__main__"):
-  try: 
-    t = timeit.Timer(setup='from __main__ import primes', stmt='primes(int(sys.argv[1]))') 
+  try:
+    t = timeit.Timer(setup='from __main__ import primes', stmt='primes(int(sys.argv[1]))')
     print t.timeit(1)
   except:
     print 'Usage: python file_name.py ARG'

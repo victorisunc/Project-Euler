@@ -3,7 +3,7 @@
 import sys
 import timeit
 
-# PROJECT EULER 
+# PROJECT EULER
 
 # PROBLEM 5:
 
@@ -17,7 +17,7 @@ def find_smallest_number(n):
   while flag:
     for i in div_numbers:
       if smallest_number % i == 0:
-        if i == n: 
+        if i == n:
           print 'smallest_number: %s' % smallest_number
           flag = False
           return
@@ -29,7 +29,7 @@ def find_smallest_number(n):
 # INCREDIBLY BETTER AND FASTER WAY TO SOLVE THIS:
 def gcd(a, b):
     """Return greatest common divisor using Euclid's Algorithm."""
-    while b:      
+    while b:
         a, b = b, a % b
     return a
 
@@ -38,14 +38,14 @@ def lcm(a, b):
     return a * b // gcd(a, b)
 
 def lcmm(*args):
-    """Return lcm of args."""   
+    """Return lcm of args."""
     return reduce(lcm, args)
 ####################################################
 
 if (__name__ == "__main__"):
-  try: 
+  try:
     input_range = range(1,int(sys.argv[1])+1)
-    t = timeit.Timer(setup='from __main__ import lcmm, input_range', stmt='lcmm(*input_range)') 
+    t = timeit.Timer(setup='from __main__ import lcmm, input_range', stmt='lcmm(*input_range)')
     print 'smallest number: %s' % lcmm(*input_range)
     print t.timeit(1)
   except:

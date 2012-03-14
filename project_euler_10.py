@@ -3,7 +3,7 @@
 import sys
 import timeit
 
-# PROJECT EULER 
+# PROJECT EULER
 
 # PROBLEM 10:
 
@@ -19,7 +19,7 @@ def isprime(n):
 
     max = n**0.5+1
     i = 3
-    
+
     while i <= max:
         if n % i == 0:
             return 0
@@ -30,7 +30,7 @@ def isprime(n):
 def primes(n):
     # find all primes below two million and sum them up
     i = 2
-    result = 0 
+    result = 0
     while i < n:
         if isprime(i):
             result += i
@@ -41,13 +41,13 @@ def primes(n):
 # helper sum function that takes a list as input
 def sum(result):
     summed = reduce(lambda x, y: x + y, result)
-    print summed 
+    print summed
     return summed
 
 
 if (__name__ == "__main__"):
-    try: 
-        t = timeit.Timer(setup='from __main__ import primes', stmt='primes(int(sys.argv[1]))') 
+    try:
+        t = timeit.Timer(setup='from __main__ import primes', stmt='primes(int(sys.argv[1]))')
         print t.timeit(1)
     except:
         print 'Usage: python file_name.py ARG'
