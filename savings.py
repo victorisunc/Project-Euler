@@ -13,7 +13,7 @@ def savings(initial, period, salary, exchange, monthly_rate):
     salary = int(salary)
     monthly_rate = float(monthly_rate)
     initial = int(initial)
-    result = initial
+    result = initial 
     exchange = float(exchange)
     print "\nInitial: R$%.2f - Period in Months: %s - Salary: R$%.2f - Dollar-Real Exchange: %s - Monthly Rate: %s percent\n"\
  % (initial, period, salary, exchange,(monthly_rate*100))
@@ -28,7 +28,7 @@ if (__name__ == "__main__"):
     """
     Main
     """
-    try:
+    try: 
         t = timeit.Timer(setup='from __main__ import savings', stmt='savings(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])')
         print "\n" + str(t.timeit(1)) + " seconds"
     except:
