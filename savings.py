@@ -17,15 +17,15 @@ def savings(initial, period, salary, salary_rate_increase, exchange, monthly_rat
     result = initial
     exchange = float(exchange)
     interest = 0
-    print "\nInitial: %.2f - Period in Months: %s - Salary: %.2f - Yearly Salary Increase: %s percent - Dollar-Real Exchange: %s - Monthly Rate: %s percent\n"\
- % (initial, period, salary, salary_rate_increase, exchange,(monthly_rate*100))
+    print "\nInitial: {:,.2f} - Period in Months: {!s} - Salary: {:,.2f} - Yearly Salary Increase: {:.2%} - Dollar-Real Exchange: {!s} - Monthly Rate: {:.2%}\n".\
+    format(initial, period, salary, salary_rate_increase, exchange, monthly_rate)
     for i in range(1, int(period)+1):
 
         # increase salary every year by a percentage set in input parameter
-        if ((i-1) % 12 == 0):
+        if (i > 1 and (i % 12) == 1):
             salary = salary * (1 + salary_rate_increase)
 
-        print "%.2f \t- next interest: %.2f \t- amount added: %.2f \t- month: %s \t- year: %s" % (result, (monthly_rate*result), salary, i, ((i-1)/12)+1)
+        print "{:,.2f} \t- next interest: {:,.2f} \t- amount added: {:,.2f} \t- month: {!s} \t- year: {!s}".format(result, (monthly_rate*result), salary, i, ((i-1)/12)+1)
         result += salary + ((monthly_rate) * result)
         interest += monthly_rate*result
     print "\nFinal Total: %.2f" % result
