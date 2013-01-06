@@ -28,9 +28,9 @@ def savings(initial, period, salary, salary_rate_increase, exchange, monthly_rat
         print "{:,.2f} \t- next interest: {:,.2f} \t- amount added: {:,.2f} \t- month: {!s} \t- year: {!s}".format(result, (monthly_rate*result), salary, i, ((i-1)/12)+1)
         result += salary + ((monthly_rate) * result)
         interest += monthly_rate*result
-    print "\nFinal Total: %.2f" % result
-    print "Interest Only: %.2f" % interest
-    print "USD: %.2f" % (result/exchange)
+    print "\nFinal Total: {:,.2f}".format(result)
+    print "Interest Only: {:,.2f}".format(interest)
+    print "USD: {:,.2f}".format(result/exchange)
     return
 if (__name__ == "__main__"):
     """
