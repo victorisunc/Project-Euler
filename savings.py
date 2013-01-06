@@ -16,6 +16,7 @@ def savings(initial, period, salary, salary_rate_increase, exchange, monthly_rat
     initial = int(initial)
     result = initial
     exchange = float(exchange)
+    interest = 0
     print "\nInitial: %.2f - Period in Months: %s - Salary: %.2f - Yearly Salary Increase: %s percent - Dollar-Real Exchange: %s - Monthly Rate: %s percent\n"\
  % (initial, period, salary, salary_rate_increase, exchange,(monthly_rate*100))
     for i in range(1, int(period)+1):
@@ -24,11 +25,12 @@ def savings(initial, period, salary, salary_rate_increase, exchange, monthly_rat
         if (i % 13 == 0):
             salary = salary * (1 + salary_rate_increase)
 
-        print "%.2f \t- next interest: %.2f \t- amount added: %.2f \t- month: %s " % (result, (monthly_rate*result), salary, i)
+        print "%.2f \t- next interest: %.2f \t- amount added: %.2f \t- month: %s \t- year: %s" % (result, (monthly_rate*result), salary, i, (i/12)+1)
         result += salary + ((monthly_rate) * result)
+        interest += monthly_rate*result
     print "\nFinal Total: %.2f" % result
-    print "Interest Only: %.2f" % (result - (initial + salary * int(period)))
-    print "In Dollar: $%.2f" % (result/exchange)
+    print "Interest Only: %.2f" % interest
+    print "USD: %.2f" % (result/exchange)
     return
 if (__name__ == "__main__"):
     """
