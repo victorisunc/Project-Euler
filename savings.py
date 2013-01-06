@@ -22,10 +22,10 @@ def savings(initial, period, salary, salary_rate_increase, exchange, monthly_rat
     for i in range(1, int(period)+1):
 
         # increase salary every year by a percentage set in input parameter
-        if (i % 13 == 0):
+        if ((i-1) % 12 == 0):
             salary = salary * (1 + salary_rate_increase)
 
-        print "%.2f \t- next interest: %.2f \t- amount added: %.2f \t- month: %s \t- year: %s" % (result, (monthly_rate*result), salary, i, (i/12)+1)
+        print "%.2f \t- next interest: %.2f \t- amount added: %.2f \t- month: %s \t- year: %s" % (result, (monthly_rate*result), salary, i, ((i-1)/12)+1)
         result += salary + ((monthly_rate) * result)
         interest += monthly_rate*result
     print "\nFinal Total: %.2f" % result
