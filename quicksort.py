@@ -15,8 +15,9 @@ def quicksort(l):
 
 if (__name__ == "__main__"):
     try:
-        t = timeit.Timer(setup='from __main__ import quicksort', stmt="quicksort(sys.argv[1].replace(' ', '').split(','))")
+        # t = timeit.Timer(setup='from __main__ import quicksort', stmt="quicksort(sys.argv[1].replace(' ', '').split(','))")
         print t.timeit(1)
-        print quicksort(sys.argv[1].replace(' ', '').split(','))
+        # print quicksort(sys.argv[1].replace(' ', '').split(','))
+        print quicksort([2,1,3])
     except:
         print 'Usage: python file_name.py LIST_TO_SORT'
