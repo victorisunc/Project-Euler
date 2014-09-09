@@ -34,30 +34,33 @@ def spiral_matrix(cols, rows):
   down, right = rows - 1, cols - 1
   number_to_write = 1
 
-  while(top <= down and left <= right):
+  while(True):
     for i in range(left, right + 1): # top row
-      matrix[top][i] = number_to_write
+      matrix[top][i] = '{0:2}'.format(number_to_write)
       number_to_write += 1
     top += 1
+    if top > down or left > right: break
     for i in range(top, down + 1): # rightmost row
-      matrix[i][right] = number_to_write
+      matrix[i][right] = '{0:2}'.format(number_to_write)
       number_to_write += 1
     right -= 1
+    if top > down or left > right: break
     for i in range(right, left - 1, -1): # bottom row
-      matrix[down][i] = number_to_write
+      matrix[down][i] = '{0:2}'.format(number_to_write)
       number_to_write += 1
     down -= 1
+    if top > down or left > right: break
     for i in range(down, top - 1, -1): # leftmost row
-      matrix[i][left] = number_to_write
+      matrix[i][left] = '{0:2}'.format(number_to_write)
       number_to_write += 1
     left += 1
+    if top > down or left > right: break
   print_matrix(matrix)
   return
 
 def print_matrix(matrix):
-  for i in matrix:
-    print ' '.join(str(i))
-      
+  print('\n'.join(''.join(['{0:4}'.format(item)]).replace("'", '') for item in matrix))
+
 if __name__ == '__main__':
   try:
     t = timeit.Timer(setup='from __main__ import spiral_matrix',
