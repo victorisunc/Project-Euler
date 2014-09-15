@@ -19,20 +19,14 @@ import timeit
 # Which starting number, under one million, produces the largest chain?
 
 def longest_chain(n):
-    n = int(n)
     longest_chain = 0
-    #sequence = []
     counter = 0
-    terms = 0
-    term = 0
     number_chainlength = {}
     temp_sequence_length = 0
 
-    for i in range(2, n):
+    for i in range(2, int(n)):
         number = i
         counter += 1
-        #sequence.insert(0, i)
-
         while number != 1:
             if number in number_chainlength:
                 temp_sequence_length = number_chainlength[number] - 1
@@ -42,16 +36,12 @@ def longest_chain(n):
             else:
                 number = 3*number + 1
             counter += 1
-            #sequence.append(number)
-
-        #number_chainlength[i] = len(sequence) + temp_sequence_length
         number_chainlength[i] = counter + temp_sequence_length
         temp_sequence_length = 0
 
         if longest_chain < number_chainlength[i]:
             longest_chain = number_chainlength[i]
             largest_starting_number = i
-        #sequence = []
         counter = 0
 
     print "Under %s," % n
@@ -67,3 +57,4 @@ if (__name__ == "__main__"):
         print 'Usage: python file_name.py <n>'
     # My solution takes 3 seconds to compute the solution to this problem (number under 1 million)
     # On a Core 2 Duo 2.0GHz Asus Laptop
+    # On a MacBook Retina 15 i7, it takes ~1.8s
