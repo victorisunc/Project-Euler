@@ -21,7 +21,7 @@ module Collatz
     temp_sequence_length::Int64 = 0
     largest_starting_number::Int64 = 0
 
-    for i in 2:n-1
+    for i in 1:n-1
       number = i
       counter += 1
       while number != 1
@@ -47,9 +47,9 @@ module Collatz
       counter = 0
     end
     println("Under $n,")
-    #println("the largest starting number is: $largest_starting_number")
-    #rintln("with longest chain of: $(number_chain_length[largest_starting_number])")
-    (largest_starting_number, number_chain_length[largest_starting_number])
+    println("the largest starting number is: $largest_starting_number")
+    println("with longest chain of: $(number_chain_length[largest_starting_number])")
+    (largest_starting_number, number_chain_length[largest_starting_number], number_chain_length)
   end
 
 end
