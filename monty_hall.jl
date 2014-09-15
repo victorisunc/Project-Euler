@@ -1,3 +1,7 @@
+module MontyHall
+
+#export monty_sim
+
 function monty_sim(ngames)
   no_switch = 0
   switch = 0
@@ -12,6 +16,19 @@ function monty_sim(ngames)
   end
   println("Probability of winning (own door): $(no_switch/ngames)")
   println("Probability of winning (switching door): $(switch/ngames)")
+  (no_switch/ngames, switch/ngames)
 end
 
-monty_sim(30000000)
+end
+
+# Just experimenting with Julia's type
+#type Point
+#  x::Int64
+#  y::Int64
+#  Point(x, y) = new(x, y)
+#end
+# Due to Julia's multiple dispatch
+#multiply_x_y(p::Point) = p.x * p.y
+
+#p = Point(2, 4)
+#multiply_x_y(p)
