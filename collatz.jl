@@ -21,7 +21,7 @@ module Collatz
     temp_sequence_length::Int64 = 0
     largest_starting_number::Int64 = 0
 
-    for i in 1:n-1
+    for i = 1 : n - 1
       number = i
       counter += 1
       while number != 1

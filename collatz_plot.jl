@@ -1,6 +1,7 @@
 module CollatzPlot
 include("collatz.jl")
 using PyPlot
+# using Winston
 
   function collatz_plot(n)
     number, chain_length, chain = Collatz.longest_chain(n)
