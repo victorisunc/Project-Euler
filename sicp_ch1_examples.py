@@ -431,17 +431,16 @@ def multiply(a, b):
       return plus(a, multiply(a, dec(b)))
 
 # Exercise 1.19
-# exercise left to reader to solve for p' and q'
-#def fib_iter(a, b, p, q, count):
-#   if count == 0:
-#      return b
-#   else:
-#      if even(count):
-#         return fib_iter(a, b, p', q', count / 2)
-#      else:
-#         return fib_iter((b * q) + (a * q) + (a * p), (b * p) + (a * q), p, q, count - 1)
-#def fib(n):
-#   return fib_iter(1, 0, 0, 1, n)
+def fib_iter(a, b, p, q, count):
+   if count == 0:
+      return b
+   else:
+      if count % 2 == 0:
+         return fib_iter(a, b, ((p * p) + (q * q)), ( (q * q ) + (2 * p * q)), count / 2)
+      else:
+         return fib_iter((b * q) + (a * q) + (a * p), (b * p) + (a * q), p, q, count - 1)
+def fib_monster(n):
+   return fib_iter(1, 0, 0, 1, n)
 
 # 1.2.5 Procedures and the Processes They Generate - Greatest Common Divisors
 def gcd(a, b):
