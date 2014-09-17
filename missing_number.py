@@ -55,7 +55,7 @@ def setup(list_length):
 
   # Randomly remove one number from the array
   number_to_remove = randint(1, list_length)
-  print 'number to be removed: %s' % number_to_remove 
+  print 'number to be removed: %s' % number_to_remove
   array.remove(number_to_remove)
 
   start = time.time()
@@ -71,7 +71,7 @@ def setup(list_length):
   start = time.time()
   missing_number_log_g(array)
   elapsed = time.time() - start
-  print 'missing_number_log_g took: %s seconds' % elapsed
+  print 'missing_number_log_g took: %s ms' % (elapsed * 1000)
 
 
 if (__name__ == '__main__'):
